@@ -18,16 +18,17 @@ export default function TableHead() {
     <div className="tableHead">
       {Object.entries(dataKeys).map((entr) => {
         const [key, value] = entr;
-        const endDecor = filterByFileld[key] ? (
-          <KeyboardArrowUpIcon />
-        ) : (
-          <KeyboardArrowDownIcon />
-        );
+        const endDecor =
+          filterByFileld[key] === "max" ? (
+            <KeyboardArrowUpIcon />
+          ) : (
+            <KeyboardArrowDownIcon />
+          );
         return (
           <Button
             onClick={() => handleFilter(key)}
             key={key}
-            endDecorator={endDecor}
+            endDecorator={filterByFileld[key] && endDecor}
             variant="plain"
           >
             {value}

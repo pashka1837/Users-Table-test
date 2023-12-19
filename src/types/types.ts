@@ -16,7 +16,7 @@ export type T_ReturnData = {
 };
 
 export type T_FilterByField = {
-  [prop: string]: boolean;
+  [prop: string]: string;
 };
 
 // export type T_FilterByField = {
