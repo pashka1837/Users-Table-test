@@ -5,8 +5,6 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { setFilter } from "../../features/usersSlice/usersSlice";
 
-import "./TableHead.css";
-
 export default function TableHead() {
   const filterByFileld = useAppSelector((store) => store.users.filterByFileld);
   const dispatch = useAppDispatch();
@@ -15,7 +13,14 @@ export default function TableHead() {
     dispatch(setFilter(key));
   }
   return (
-    <div className="tableHead">
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr repeat(4, 3fr)",
+        justifyItems: "center",
+        padding: "2% 1%",
+      }}
+    >
       {Object.entries(dataKeys).map((entr) => {
         const [key, value] = entr;
         const endDecor =

@@ -1,6 +1,5 @@
 import { Divider, Typography } from "@mui/joy";
 import { T_User } from "../../types/types";
-import "./SingleUser.css";
 
 export default function SingleUser({
   user,
@@ -11,7 +10,14 @@ export default function SingleUser({
 }) {
   return (
     <>
-      <div className="singleUser_container">
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr repeat(4, 3fr)",
+          justifyItems: "center",
+          padding: "10px 0",
+        }}
+      >
         {Object.entries(user).map((entr) => {
           const [key, value] = entr;
           if (key === "id") return null;

@@ -1,6 +1,0 @@
-.tableHead {
-  padding: 2% 1%;
-  display: grid;
-  grid-template-columns: 1fr repeat(4, 3fr);
-  justify-items: center;
-}

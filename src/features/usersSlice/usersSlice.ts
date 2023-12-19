@@ -51,12 +51,17 @@ const usersSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.curPage = action.payload;
     },
+
+    setTotalPages: (state, action: PayloadAction<number>) => {
+      state.totalPages = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
       fetchUsers.fulfilled,
       (state, action: PayloadAction<T_ReturnData>) => {
         const { users, totalPages } = action.payload;
+        // console.log(users);
         state.users = users;
         state.totalPages = totalPages;
         state.isLoading = false;
@@ -74,6 +79,7 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setSearch, setFilter, setPage } = usersSlice.actions;
+export const { setSearch, setFilter, setPage, setTotalPages } =
+  usersSlice.actions;
 
 export default usersSlice.reducer;

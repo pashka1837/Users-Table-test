@@ -1,6 +1,0 @@
-.singleUser_container {
-  display: grid;
-  grid-template-columns: 1fr repeat(4, 3fr);
-  justify-items: center;
-  padding: 10px 0;
-}

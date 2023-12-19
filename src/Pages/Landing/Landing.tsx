@@ -1,14 +1,13 @@
-import FilterBar from "../../Components/FilterBar/FilterBar";
-import UsersPagination from "../../Components/UsersPagination/UsersPagination";
-import TableData from "../../Components/TableData/TableData";
-import "./Landing.css";
+import { Divider, Sheet } from "@mui/joy";
+import TableHead from "../../Components/TableHead/TableHead";
+import UsersList from "../../Components/UsersList/UsersList";
 
-export default function Landing() {
+export default function TableData() {
   return (
-    <main>
-      <FilterBar />
-      <TableData />
-      <UsersPagination />
-    </main>
+    <Sheet variant="outlined" sx={{ borderRadius: 6 }}>
+      <TableHead />
+      <Divider orientation="horizontal" />
+      <UsersList />
+    </Sheet>
   );
 }

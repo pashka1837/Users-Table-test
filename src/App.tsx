@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     element: <HomeLayot />,
     children: [
       {
-        index: true,
+        path: "/page/:page",
         element: <Landing />,
       },
     ],
