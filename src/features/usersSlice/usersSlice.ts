@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { T_FilterByField, T_ReturnData, T_User } from "../../types/types";
+import { CounterState, T_ReturnData } from "../../types/types";
 
 export const fetchUsers = createAsyncThunk(
   "users/fetchUsers",
@@ -9,17 +9,6 @@ export const fetchUsers = createAsyncThunk(
     return (await response.json()) as T_ReturnData;
   }
 );
-
-type CounterState = {
-  users: T_User[];
-  filterByFileld: T_FilterByField;
-  search: string;
-  totalPages: number;
-  curPage: number;
-  isLoading: boolean;
-  isError: boolean;
-  error: string;
-};
 
 const initialState: CounterState = {
   users: [],
@@ -51,17 +40,12 @@ const usersSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       state.curPage = action.payload;
     },
-
-    setTotalPages: (state, action: PayloadAction<number>) => {
-      state.totalPages = action.payload;
-    },
   },
   extraReducers: (builder) => {
     builder.addCase(
       fetchUsers.fulfilled,
       (state, action: PayloadAction<T_ReturnData>) => {
         const { users, totalPages } = action.payload;
-        // console.log(users);
         state.users = users;
         state.totalPages = totalPages;
         state.isLoading = false;
@@ -79,7 +63,6 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setSearch, setFilter, setPage, setTotalPages } =
-  usersSlice.actions;
+export const { setSearch, setFilter, setPage } = usersSlice.actions;
 
 export default usersSlice.reducer;

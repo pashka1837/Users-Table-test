@@ -1,6 +1,5 @@
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import SearchBar from "../../Components/SearchBar/SearchBar";
-import UsersPagination from "../../Components/UsersPagination/UsersPagination";
+import { SearchBar, UsersPagination } from "../Components/index";
 import { useEffect } from "react";
 
 export default function HomeLayot() {

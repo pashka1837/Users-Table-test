@@ -1,16 +1,11 @@
 import { Fragment, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
-import {
-  fetchUsers,
-  setPage,
-  setTotalPages,
-} from "../../features/usersSlice/usersSlice";
-import SingleUser from "../SingleUser/SingleUser";
-import Loader from "../Loader/Loader";
-import { filterBySearch, filterUsers } from "../../utils/filter";
-import NoUsersBox from "../NoUsersBox/NoUsersBox";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { fetchUsers, setPage } from "../features/usersSlice/usersSlice";
+import SingleUser from "./SingleUser";
+import Loader from "./Loader";
+import { filterBySearch, filterUsers } from "../utils/filter";
+import NoUsersBox from "./NoUsersBox";
 import { useParams } from "react-router-dom";
-import { useGetUsersQuery } from "../../services/usersApi";
 
 export default function UsersList() {
   const { page } = useParams();

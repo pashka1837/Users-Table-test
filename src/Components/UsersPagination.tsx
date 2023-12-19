@@ -1,8 +1,8 @@
 import { Pagination } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
 import { Stack } from "@mui/joy";
 import { useNavigate } from "react-router-dom";
-import { setSearch } from "../../features/usersSlice/usersSlice";
+import { setSearch } from "../features/usersSlice/usersSlice";
 
 export default function UsersPagination() {
   const { curPage, totalPages } = useAppSelector((store) => store.users);

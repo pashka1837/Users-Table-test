@@ -1,6 +1,5 @@
 import { Divider, Sheet } from "@mui/joy";
-import TableHead from "../../Components/TableHead/TableHead";
-import UsersList from "../../Components/UsersList/UsersList";
+import { UsersList, TableHead } from "../Components/index";
 
 export default function TableData() {
   return (

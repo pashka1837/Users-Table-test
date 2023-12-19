@@ -1,6 +1,6 @@
 import { Button, FormControl, Input, Sheet, Stack } from "@mui/joy";
-import { useAppDispatch } from "../../hooks/reduxHooks";
-import { setSearch } from "../../features/usersSlice/usersSlice";
+import { useAppDispatch } from "../hooks/reduxHooks";
+import { setSearch } from "../features/usersSlice/usersSlice";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 export default function SearchBar() {

@@ -11,9 +11,11 @@ export function filterUsers(
     let second = b[key!];
     if (key !== "_id")
       return curFilter === "min"
-        ? first.localeCompare(second)
-        : second.localeCompare(first);
-    return curFilter === "min" ? first - second : second - first;
+        ? (first as string).localeCompare(second as string)
+        : (second as string).localeCompare(first as string);
+    return curFilter === "min"
+      ? (first as number) - (second as number)
+      : (second as number) - (first as number);
   });
 }
 

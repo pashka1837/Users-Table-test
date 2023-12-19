@@ -1,6 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import HomeLayot from "./Pages/HomeLayout/HomeLayot";
-import Landing from "./Pages/Landing/Landing";
+import { HomeLayot, Landing } from "./Pages/index";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
 

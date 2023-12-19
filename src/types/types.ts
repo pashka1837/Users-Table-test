@@ -4,6 +4,7 @@ export type T_User = {
   lastName: string;
   email: string;
   phone: string;
+  [prop: string]: string | number;
 };
 
 export type T_FetchedUsers = {
@@ -17,4 +18,15 @@ export type T_ReturnData = {
 
 export type T_FilterByField = {
   [prop: string]: string;
+};
+
+export type CounterState = {
+  users: T_User[];
+  filterByFileld: T_FilterByField;
+  search: string;
+  totalPages: number;
+  curPage: number;
+  isLoading: boolean;
+  isError: boolean;
+  error: string;
 };
