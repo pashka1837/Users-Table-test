@@ -5,7 +5,7 @@ import { setSearch } from "../../features/usersSlice/usersSlice";
 export default function FilterBar() {
   const dispatch = useAppDispatch();
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    const inpValue = e.target.value;
+    const inpValue = e.target.value.toLowerCase().trim();
     console.log(inpValue);
     dispatch(setSearch(inpValue));
   }

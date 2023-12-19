@@ -25,10 +25,6 @@ const initialState: CounterState = {
   users: [],
   filterByFileld: {
     _id: "min",
-    // firstName: "none",
-    // lastName: "none",
-    // email: "none",
-    // phone: "none",
   },
   search: "",
   totalPages: 0,
@@ -50,11 +46,6 @@ const usersSlice = createSlice({
     },
     setFilter: (state, action: PayloadAction<string>) => {
       const key = action.payload;
-      //   for (const prop in state.filterByFileld) {
-      //     state.filterByFileld[`${prop}`] =
-      //       key === prop ? !state.filterByFileld[`${prop}`] : false;
-      //   }
-
       if (state.filterByFileld[key])
         state.filterByFileld[key] =
           state.filterByFileld[key] === "min" ? "max" : "min";
