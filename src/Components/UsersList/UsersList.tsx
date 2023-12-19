@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { fetchUsers } from "../../features/usersSlice/usersSlice";
-import TableHead from "../TableHead/TableHead";
-import { Divider, Sheet } from "@mui/joy";
+import { Divider } from "@mui/joy";
 import "./UserList.css";
 import SingleUser from "../SingleUser/SingleUser";
 
@@ -20,8 +19,11 @@ export default function UsersList() {
   return (
     <div className="userList_container">
       {users &&
-        users.map((user) => (
-          <SingleUser key={user._id + user.email} user={user} />
+        users.map((user, i) => (
+          <>
+            <SingleUser key={user._id + user.email} user={user} />
+            {i !== users.length - 1 && <Divider orientation="horizontal" />}
+          </>
         ))}
     </div>
   );

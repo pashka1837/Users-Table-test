@@ -5,9 +5,10 @@ import "./SingleUser.css";
 export default function SingleUser({ user }: { user: T_User }) {
   return (
     <div className="singleUser_container">
-      {Object.values(user).map((value) => {
-        console.log(value);
-        return <Typography>{value}</Typography>;
+      {Object.entries(user).map((entr, i) => {
+        const [key, value] = entr;
+        if (key === "id") return null;
+        return <Typography key={key}>{value}</Typography>;
       })}
     </div>
   );
