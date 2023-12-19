@@ -38,9 +38,6 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    addUsers: (state, action: PayloadAction<T_User[]>) => {
-      state.users = action.payload;
-    },
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
@@ -50,6 +47,9 @@ const usersSlice = createSlice({
         state.filterByFileld[key] =
           state.filterByFileld[key] === "min" ? "max" : "min";
       else state.filterByFileld = { [`${key}`]: "min" };
+    },
+    setPage: (state, action: PayloadAction<number>) => {
+      state.curPage = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -74,6 +74,6 @@ const usersSlice = createSlice({
   },
 });
 
-export const { setSearch, setFilter } = usersSlice.actions;
+export const { setSearch, setFilter, setPage } = usersSlice.actions;
 
 export default usersSlice.reducer;

@@ -1,11 +1,11 @@
 import { Fragment, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { fetchUsers } from "../../features/usersSlice/usersSlice";
-import { Divider } from "@mui/joy";
-import "./UserList.css";
 import SingleUser from "../SingleUser/SingleUser";
 import Loader from "../Loader/Loader";
 import { filterBySearch, filterUsers } from "../../utils/filter";
+import "./UserList.css";
+import NoUsersBox from "../NoUsersBox/NoUsersBox";
 
 export default function UsersList() {
   const {
@@ -21,7 +21,7 @@ export default function UsersList() {
   useEffect(() => {
     console.log("dis");
     dispatch(fetchUsers(`${curPage}`));
-  }, []);
+  }, [curPage]);
 
   if (isLoading) return <Loader />;
   if (isError) return <h2>Error</h2>;
@@ -31,12 +31,15 @@ export default function UsersList() {
 
   return (
     <div className="userList_container">
-      {users.map((user, i) => (
-        <Fragment key={user._id + user.email}>
-          <SingleUser user={user} />
-          {i !== users.length - 1 && <Divider orientation="horizontal" />}
-        </Fragment>
-      ))}
+      {users.length ? (
+        users.map((user, i) => (
+          <Fragment key={user._id + user.email}>
+            <SingleUser user={user} isDivider={i !== users.length - 1} />
+          </Fragment>
+        ))
+      ) : (
+        <NoUsersBox msg="No Users found" />
+      )}
     </div>
   );
 }

@@ -18,7 +18,6 @@ export function filterUsers(
 }
 
 export function filterBySearch(data: T_User[], search: string): T_User[] {
-  console.log(search);
   return data.filter((user) => {
     let values = Object.values(user);
     return values.some((v) => `${v}`.toLowerCase().includes(search));

@@ -1,5 +1,5 @@
 import FilterBar from "../../Components/FilterBar/FilterBar";
-import Pagination from "../../Components/Pagination/Pagination";
+import UsersPagination from "../../Components/UsersPagination/UsersPagination";
 import TableData from "../../Components/TableData/TableData";
 import "./Landing.css";
 
@@ -8,7 +8,7 @@ export default function Landing() {
     <main>
       <FilterBar />
       <TableData />
-      <Pagination />
+      <UsersPagination />
     </main>
   );
 }
