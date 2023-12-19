@@ -16,9 +16,13 @@ export type T_ReturnData = {
 };
 
 export type T_FilterByField = {
-  id: boolean;
-  firstName: boolean;
-  lastName: boolean;
-  email: boolean;
-  phone: boolean;
+  [prop: string]: boolean;
 };
+
+// export type T_FilterByField = {
+//   _id: boolean;
+//   firstName: boolean;
+//   lastName: boolean;
+//   email: boolean;
+//   phone: boolean;
+// };

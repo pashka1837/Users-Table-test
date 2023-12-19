@@ -1,5 +1,13 @@
 import { T_User } from "../types/types";
 
+export const dataKeys = {
+  _id: "Id",
+  firstName: "First Name",
+  lastName: "Last Name",
+  email: "Email",
+  phone: "Phone",
+};
+
 const data: T_User[] = [
   {
     _id: 296,

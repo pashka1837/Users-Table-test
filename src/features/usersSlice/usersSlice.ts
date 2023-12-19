@@ -24,7 +24,7 @@ type CounterState = {
 const initialState: CounterState = {
   users: [],
   filterByFileld: {
-    id: false,
+    _id: false,
     firstName: false,
     lastName: false,
     email: false,
@@ -44,6 +44,16 @@ const usersSlice = createSlice({
   reducers: {
     addUsers: (state, action: PayloadAction<T_User[]>) => {
       state.users = action.payload;
+    },
+    setSearch: (state, action: PayloadAction<string>) => {
+      state.search = action.payload;
+    },
+    setFilter: (state, action: PayloadAction<string>) => {
+      const key = action.payload;
+      for (const prop in state.filterByFileld) {
+        state.filterByFileld[`${prop}`] =
+          key === prop ? !state.filterByFileld[`${prop}`] : false;
+      }
     },
   },
   extraReducers: (builder) => {
@@ -68,6 +78,6 @@ const usersSlice = createSlice({
   },
 });
 
-export const { addUsers } = usersSlice.actions;
+export const { setSearch, setFilter } = usersSlice.actions;
 
 export default usersSlice.reducer;
