@@ -1,32 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { useAppDispatch, useAppSelector } from "./hooks/reduxHooks";
+import { fetchUsers } from "./features/usersSlice/usersSlice";
 
 function App() {
-  const [count, setCount] = useState(0);
-  let [users, setUsers] = useState([]);
+  const { users, isLoading, error, isError, curPage } = useAppSelector(
+    (store) => store.users
+  );
+  const dispatch = useAppDispatch();
   useEffect(() => {
-    async function fetchUsers() {
-      const res = await fetch("/api/users");
-      console.log(res);
-      const data = await res.json();
-      console.log(data);
-      setUsers(data.users);
-    }
-    fetchUsers();
+    dispatch(fetchUsers(`${1}`));
   }, []);
-  // useEffect(() => {
-  //   fetch("/api/users")
-  //     .then((response) => {
-  //       console.log(response);
-  //       return response.json();
-  //     })
-  //     .then((json) => {
-  //       console.log(json);
-  //       setUsers(json.users);
-  //     });
-  // }, []);
+
+  if (isLoading) return <h2>loading</h2>;
+  if (isError) return <h2>Error</h2>;
+
+  // const users = data;
 
   return (
     <>
@@ -40,9 +31,9 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
-        </button>
+        </button> */}
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
@@ -51,9 +42,12 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <ul>
-        {users.map((user) => (
-          <li key={user._id + user.email}>{user.firstName}</li>
-        ))}
+        {users &&
+          users.map((user, i) => (
+            <li key={user._id + user.email}>
+              {i + 1}: {user.firstName}
+            </li>
+          ))}
       </ul>
     </>
   );

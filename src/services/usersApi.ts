@@ -5,8 +5,10 @@ export const userApi = createApi({
   reducerPath: "usersApi",
   baseQuery: fetchBaseQuery({ baseUrl: "/" }),
   endpoints: (builder) => ({
-    getUsers: builder.query<T_User[], string>({
-      query: () => `api/users`,
+    getUsers: builder.query<T_User[], string | void>({
+      query: (page: string) => ({
+        url: `api/users?page=${page}`,
+      }),
     }),
   }),
 });
