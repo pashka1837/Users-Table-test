@@ -7,6 +7,7 @@ import {
 } from "../Components/index";
 import { useGetUsersQuery } from "../services/usersApi";
 import { useLocation } from "react-router-dom";
+import SelectedUsers from "../Components/SelectedUsers";
 
 export default function Landing() {
   const { search } = useLocation();
@@ -26,6 +27,7 @@ export default function Landing() {
         <UsersList />
       </Sheet>
       <UsersPagination />
+      <SelectedUsers />
     </>
   );
 }

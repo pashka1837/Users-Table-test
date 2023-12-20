@@ -20,11 +20,15 @@ export default function UsersList() {
   if (filterByInput) users = filterBySearch(users, filterByInput);
 
   return (
-    <div className="userList_container" style={{ padding: "0 1%" }}>
+    <div style={{ padding: "0 1%" }}>
       {users.length ? (
         users.map((user, i) => (
           <Fragment key={user._id + user.email}>
-            <SingleUser user={user} isDivider={i !== users.length - 1} />
+            <SingleUser
+              isFunc={true}
+              user={user}
+              isDivider={i !== users.length - 1}
+            />
           </Fragment>
         ))
       ) : (

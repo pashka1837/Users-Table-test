@@ -2,7 +2,10 @@ import { Pagination } from "@mui/material";
 import { useAppDispatch } from "../hooks/reduxHooks";
 import { Stack } from "@mui/joy";
 import { useLocation, useNavigate } from "react-router-dom";
-import { setSearch } from "../features/usersSlice/usersSlice";
+import {
+  clearSelectedUsers,
+  setSearch,
+} from "../features/usersSlice/usersSlice";
 import { useQueryStateResult } from "../services/usersApi";
 
 export default function UsersPagination() {
@@ -16,6 +19,7 @@ export default function UsersPagination() {
   function handlePagination(e: React.ChangeEvent<unknown>, value: number) {
     if (curPage === value) return;
     dispatch(setSearch(""));
+    dispatch(clearSelectedUsers());
     navigate(`${pathname}?page=${value}`);
   }
 

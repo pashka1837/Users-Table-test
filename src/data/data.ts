@@ -11,28 +11,28 @@ export const dataKeys = {
 const data: T_User[] = [
   {
     _id: 296,
-    firstName: "Selma Terry",
+    firstName: "Selma XX Terry",
     lastName: "Lenore Chase",
-    email: "lenorechase@futursize.com",
+    email: "lenorechase@futurize.com",
     phone: "+1 (819) 406-3304",
   },
   {
     _id: 379,
-    firstName: "Rhonda Steele",
+    firstName: "Rhonda XX Steele",
     lastName: "Edwina Patrick",
     email: "edwinapatrick@futursize.com",
     phone: "+1 (890) 499-2710",
   },
   {
     _id: 163,
-    firstName: "Gordon Robinson",
+    firstName: "Gordon XX Robinson",
     lastName: "Jeanie Cross",
     email: "jeaniecross@futursize.com",
     phone: "+1 (914) 414-3868",
   },
   {
     _id: 877,
-    firstName: "Mai Lambert",
+    firstName: "Mai XX Lambert",
     lastName: "Chavez Mack",
     email: "chavezmack@futursize.com",
     phone: "+1 (991) 402-2044",

@@ -22,14 +22,9 @@ export type T_FilterByField = {
 };
 
 export type CounterState = {
-  users: T_User[];
+  selectedUsers: T_User[];
   filterByFileld: T_FilterByField;
   search: string;
-  totalPages: number;
-  curPage: number;
-  isLoading: boolean;
-  isError: boolean;
-  error: string;
 };
 
 export type T_FetchError = {

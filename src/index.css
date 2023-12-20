@@ -10,6 +10,13 @@
   box-sizing: border-box;
 }
 
+.single_user_container {
+  display: grid;
+  grid-template-columns: 1fr repeat(4, 3fr);
+  justify-items: center;
+  padding: 10px 0px;
+}
+
 .error-container {
   padding: 5%;
   width: 100vw;
