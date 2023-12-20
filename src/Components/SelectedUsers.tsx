@@ -16,7 +16,7 @@ export default function SelectedUsers() {
       {selectedUsers.length ? (
         selectedUsers.map((user, i) => {
           return (
-            <Fragment key={user._id + user.email}>
+            <Fragment key={user._id + user.firstName}>
               <SingleUser
                 isFunc={false}
                 user={user}

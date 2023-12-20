@@ -23,7 +23,7 @@ export default function UsersList() {
     <div style={{ padding: "0 1%" }}>
       {users.length ? (
         users.map((user, i) => (
-          <Fragment key={user._id + user.email}>
+          <Fragment key={user._id + user.email + i}>
             <SingleUser
               isFunc={true}
               user={user}
