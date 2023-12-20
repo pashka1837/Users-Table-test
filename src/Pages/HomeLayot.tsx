@@ -6,7 +6,7 @@ export default function HomeLayot() {
   const { search } = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
-    navigate(`/page${search}`);
+    navigate(`/page${search || "?page=1"}`);
   }, []);
 
   return (
