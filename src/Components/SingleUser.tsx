@@ -9,14 +9,21 @@ export default function SingleUser({
   isDivider: boolean;
 }) {
   const userEntries = Object.entries(user);
+
+  function handleClick() {
+    console.log(`hey`);
+  }
+
   return (
     <>
       <div
+        onClick={handleClick}
         style={{
           display: "grid",
           gridTemplateColumns: "1fr repeat(4, 3fr)",
           justifyItems: "center",
           padding: "10px 0",
+          cursor: "pointer",
         }}
       >
         {userEntries.map((entr) => {

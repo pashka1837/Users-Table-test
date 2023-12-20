@@ -1,18 +1,24 @@
 import { Pagination } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../hooks/reduxHooks";
+import { useAppDispatch } from "../hooks/reduxHooks";
 import { Stack } from "@mui/joy";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { setSearch } from "../features/usersSlice/usersSlice";
+import { useQueryStateResult } from "../services/usersApi";
 
 export default function UsersPagination() {
-  const { curPage, totalPages } = useAppSelector((store) => store.users);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { search: urlSearch, pathname } = useLocation();
+  const { data } = useQueryStateResult(urlSearch || "?page=1");
+
+  const { curPage, totalPages } = data!;
 
   function handlePagination(e: React.ChangeEvent<unknown>, value: number) {
+    if (curPage === value) return;
     dispatch(setSearch(""));
-    navigate(`/page/${value}`);
+    navigate(`${pathname}?page=${value}`);
   }
+
   return (
     <Stack
       className="pagination_container"

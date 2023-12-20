@@ -14,6 +14,7 @@ export type T_FetchedUsers = {
 export type T_ReturnData = {
   users: T_User[];
   totalPages: number;
+  curPage: number;
 };
 
 export type T_FilterByField = {
@@ -28,5 +29,9 @@ export type CounterState = {
   curPage: number;
   isLoading: boolean;
   isError: boolean;
+  error: string;
+};
+
+export type T_FetchError = {
   error: string;
 };

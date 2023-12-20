@@ -18,7 +18,7 @@ export function makeServer() {
         let start = limit * (page - 1);
         let end = start + limit;
         const data = schema.db.users.slice(start, end);
-        return { users: data, totalPages };
+        return { users: data, totalPages, curPage: page };
       });
     },
   });
