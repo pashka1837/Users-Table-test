@@ -2,7 +2,7 @@ import { Divider, Sheet, Stack, Typography } from "@mui/joy";
 import { NoUsersBox } from ".";
 import { useAppSelector } from "../hooks/reduxHooks";
 import { Fragment } from "react";
-import SingleUser from "./SingleUser";
+import { SingleUser } from "./index";
 
 export default function SelectedUsers() {
   const selectedUsers = useAppSelector((store) => store.users.selectedUsers);

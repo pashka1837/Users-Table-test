@@ -1,8 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { HomeLayot, Landing } from "./Pages/index";
+import { HomeLayot, Landing, PageError } from "./Pages/index";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
-import PageError from "./Pages/PageError.tsx";
 
 const router = createBrowserRouter([
   {

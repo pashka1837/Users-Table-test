@@ -38,31 +38,7 @@ const usersSlice = createSlice({
     clearSelectedUsers: (state) => {
       state.selectedUsers = [];
     },
-
-    // setPage: (state, action: PayloadAction<number>) => {
-    //   state.curPage = action.payload;
-    // },
   },
-  // extraReducers: (builder) => {
-  //   builder.addCase(
-  //     fetchUsers.fulfilled,
-  //     (state, action: PayloadAction<T_ReturnData>) => {
-  //       const { users, totalPages } = action.payload;
-  //       state.users = users;
-  //       state.totalPages = totalPages;
-  //       state.isLoading = false;
-  //     }
-  //   );
-  //   builder.addCase(fetchUsers.pending, (state) => {
-  //     state.isLoading = true;
-  //   });
-  //   builder.addCase(fetchUsers.rejected, (state, action) => {
-  //     state.isLoading = false;
-  //     state.isError = true;
-  //     state.error = action.error.message!;
-  //     console.log(action.error);
-  //   });
-  // },
 });
 
 export const { setSearch, setFilter, setSelectedUsers, clearSelectedUsers } =

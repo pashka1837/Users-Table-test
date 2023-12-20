@@ -6,7 +6,7 @@ import { T_FetchError } from "../types/types";
 export default function PageError() {
   const { search: urlSearch } = useLocation();
   const res = useQueryStateResult(urlSearch);
-  const error = res.error as T_FetchError;
+  const error = res?.error as T_FetchError;
   return (
     <div style={{ height: "90dvh" }} className="error-container">
       <img src={notFoundImgLigth} alt="not found" />

@@ -1,8 +1,7 @@
 import { Fragment } from "react";
 import { useAppSelector } from "../hooks/reduxHooks";
-import SingleUser from "./SingleUser";
+import { SingleUser, NoUsersBox } from "./index";
 import { filterBySearch, filterUsers } from "../utils/filter";
-import NoUsersBox from "./NoUsersBox";
 import { useLocation } from "react-router-dom";
 import { useQueryStateResult } from "../services/usersApi";
 import { Loader } from ".";
